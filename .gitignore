@@ -1,0 +1,40 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Diretório do ambiente
+.env
+
+# Diretórios e arquivos do Node
+node_modules/
+npm/
+yarn.lock
+package-lock.json
+
+# Construção
+dist/
+build/
+out/
+
+# Diretórios temporários
+tmp/
+temp/
+
+# Editor e Sistema Operacional
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# IDEs
+.idea/
+*.iml
+
+# Test Coverage
+coverage/
+
+# Miscellaneous
+*.swp
+duracao.txt
