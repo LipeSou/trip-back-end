@@ -88,7 +88,7 @@ export async function createTrip(app: FastifyInstance) {
 
         return { 
             tripId: trip.id,
-            message: `Sua viagem para ${trip.destination} criada com suscesso!`
+            message: `Sua viagem para ${trip.destination} criada com sucesso!`
          }
     })
 }
