@@ -10,6 +10,9 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "moduleResolution": "node16"
+    "moduleResolution": "node16",
+
+    "outDir": "./dist",      // Diretório de saída para os arquivos compilados
+    "rootDir": "./src",      // Diretório raiz para os arquivos de origem
   }
 }
