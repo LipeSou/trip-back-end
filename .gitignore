@@ -5,6 +5,7 @@ npm-debug.log*
 
 # Diretório do ambiente
 .env
+.env.develop
 
 # Diretórios e arquivos do Node
 node_modules/
