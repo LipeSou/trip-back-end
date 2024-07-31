@@ -1,4 +1,5 @@
 import fastify from "fastify";
+import dotenv from 'dotenv';
 import cors from "@fastify/cors";
 import { createTrip } from "./routes/create-trip";
 import { serializerCompiler, validatorCompiler } from "fastify-type-provider-zod";
@@ -16,7 +17,10 @@ import { getParticipant } from "./routes/get-participant";
 import { errorHandler } from "./error-handler";
 import { env } from "./env";
 
+dotenv.config();
+
 const app = fastify()
+const port = process.env.PORT || 3000;
 
 app.register(cors, {
     origin: '*',
@@ -40,6 +44,6 @@ app.register(updateTrip)
 app.register(getTripDetails)
 app.register(getParticipant)
 
-app.listen({ port: env.PORT , host: '0.0.0.0' }).then(() => {
+app.listen({ port: Number(port) , host: '0.0.0.0' }).then(() => {
     console.log("hello world")
 })
