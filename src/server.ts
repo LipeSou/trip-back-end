@@ -20,7 +20,7 @@ import { env } from "./env";
 dotenv.config();
 
 const app = fastify()
-const port = process.env.PORT || 3000;
+const port = env.PORT || 3000;
 
 app.register(cors, {
     origin: '*',
@@ -45,5 +45,5 @@ app.register(getTripDetails)
 app.register(getParticipant)
 
 app.listen({ port: Number(port) , host: '0.0.0.0' }).then(() => {
-    console.log("hello world")
+    console.log("hello world in " + port)
 })
