@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node dist/server.js",
+    "start": "npm run build && node dist/server.js",
     "migrate": "prisma migrate deploy", 
     "build": "tsc",
     "dev": "npx tsx watch ./src/server.ts"
