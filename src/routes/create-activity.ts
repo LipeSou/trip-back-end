@@ -4,6 +4,12 @@ import { z } from 'zod';
 import { prisma } from "../lib/prisma";
 import { dayjs } from "../lib/dayjs";
 import { ClientError } from "../errors/client-error";
+import timezone from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
 
 export async function createActivity(app: FastifyInstance) {
     app.withTypeProvider<ZodTypeProvider>().post('/trips/:tripId/activities', {
@@ -33,8 +39,8 @@ export async function createActivity(app: FastifyInstance) {
             throw new ClientError("Invalid acitity date.")
         }
 
-        if(dayjs(occurs_at).isAfter(dayjs(trip.ends_at).endOf('day'))){
-            throw new ClientError("Invalid acitity date.")
+        if(dayjs(occurs_at).tz("America/Sao_Paulo").isAfter(dayjs(trip.ends_at).tz("America/Sao_Paulo").endOf('day'))){
+            throw new ClientError("Invalid activity date.");
         }
 
         const activity = await prisma.activity.create({
