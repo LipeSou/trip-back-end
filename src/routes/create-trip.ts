@@ -86,11 +86,10 @@ export async function createTrip(app: FastifyInstance) {
             `.trim()
         })
 
-        console.log(nodemailer.getTestMessageUrl(message))
-
         return { 
             tripId: trip.id,
-            message: `Sua viagem para ${trip.destination} criada com sucesso!`
+            message: `Sua viagem para ${trip.destination} criada com sucesso!`,
+            url: nodemailer.getTestMessageUrl(message)
          }
     })
 }
